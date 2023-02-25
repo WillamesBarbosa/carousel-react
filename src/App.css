@@ -1,0 +1,47 @@
+.container-father{
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+}
+
+.container .carossel{
+  height: 100%;
+  width: 400%;
+}
+
+.carossel{
+  display: flex;
+  flex-direction: row;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.carossel .container-carossel{
+  height: 100%;
+  width: 25%;
+}
+
+button{
+  height: 100px;
+  width: 60px;
+  background-color: blue;
+  border-color: white;
+  color: white;
+  font-size: 36px;
+  transition-property: background-color, color, border-color ;
+  transition-duration: 1s, 1s, 1s ;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out ;
+}
+
+button:hover{
+  background-color: white;
+  border-color: blue;
+  color: blue;
+}
