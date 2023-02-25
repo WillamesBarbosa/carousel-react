@@ -1,30 +1,30 @@
 import './App.css';
-import Img from './Img';
-import Button from './buttons';
+import Img from './components/img/Img';
+import Button from './components/button/buttons';
 import img1 from './image/img1.jpg';
 import img2 from './image/img2.jpg';
 import img3 from './image/img3.webp';
 import img4 from './image/img4.jpg';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function App() {
   const [positionCarossel, setPositionCarossel] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      positionCarossel <= -300 ? setPositionCarossel((p) => p * 0) : setPositionCarossel((p) => p - 100);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [positionCarossel]);
-
-  const handleNextPage = () => {
+  const handleNextPage = useCallback(() => {
     positionCarossel <= -300 ? setPositionCarossel((p) => p * 0) : setPositionCarossel((p) => p - 100);
-  };
+  }, [positionCarossel]);
 
   const handlePreviewPage = () => {
     positionCarossel >= 0 ? setPositionCarossel((p) => p - 300) : setPositionCarossel((p) => p + 100);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextPage();
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [handleNextPage]);
 
   return (
     <div className="container-father">
