@@ -10,14 +10,17 @@ import { useCallback, useEffect, useState } from 'react';
 function App() {
   const [positionCarossel, setPositionCarossel] = useState(0);
 
+  // Function to move to the next image
   const handleNextPage = useCallback(() => {
     positionCarossel <= -300 ? setPositionCarossel((p) => p * 0) : setPositionCarossel((p) => p - 100);
   }, [positionCarossel]);
 
+  // Function to move to the before image
   const handlePreviewPage = () => {
     positionCarossel >= 0 ? setPositionCarossel((p) => p - 300) : setPositionCarossel((p) => p + 100);
   };
 
+  // Function for to move to the next image in a 2 seconds loop
   useEffect(() => {
     const interval = setInterval(() => {
       handleNextPage();
