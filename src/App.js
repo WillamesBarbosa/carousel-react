@@ -8,16 +8,22 @@ import img4 from './image/img4.jpg';
 import { useCallback, useEffect, useState } from 'react';
 
 function App() {
+  const imageRangeLimit = 300;
+  const incrementRange = 100;
   const [positionCarossel, setPositionCarossel] = useState(0);
 
   // Function to move to the next image
   const handleNextImage = useCallback(() => {
-    positionCarossel <= -300 ? setPositionCarossel((p) => p * 0) : setPositionCarossel((p) => p - 100);
+    positionCarossel <= -imageRangeLimit
+      ? setPositionCarossel((p) => p * 0)
+      : setPositionCarossel((p) => p - incrementRange);
   }, [positionCarossel]);
 
   // Function to move to the before image
   const handleBeforeImage = () => {
-    positionCarossel >= 0 ? setPositionCarossel((p) => p - 300) : setPositionCarossel((p) => p + 100);
+    positionCarossel >= 0
+      ? setPositionCarossel((p) => p - imageRangeLimit)
+      : setPositionCarossel((p) => p + incrementRange);
   };
 
   // useEffect to move to the next image in a 2 seconds loop
