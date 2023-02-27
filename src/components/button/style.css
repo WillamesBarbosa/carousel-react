@@ -1,0 +1,17 @@
+button{
+  height: 100px;
+  width: 60px;
+  background-color: blue;
+  border-color: white;
+  color: white;
+  font-size: 36px;
+  transition-property: background-color, color, border-color ;
+  transition-duration: 1s, 1s, 1s ;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out ;
+}
+
+button:hover{
+  background-color: white;
+  border-color: blue;
+  color: blue;
+}

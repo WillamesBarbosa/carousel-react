@@ -1,10 +1,10 @@
 import './App.css';
 import Img from './components/img/Img';
 import Button from './components/button/buttons';
-import img1 from './image/img1.jpg';
-import img2 from './image/img2.jpg';
-import img3 from './image/img3.webp';
-import img4 from './image/img4.jpg';
+import img1 from './components/img/image/img1.jpg';
+import img2 from './components/img/image/img2.jpg';
+import img3 from './components/img/image/img3.webp';
+import img4 from './components/img/image/img4.jpg';
 import { useCallback, useEffect, useState } from 'react';
 
 function App() {
