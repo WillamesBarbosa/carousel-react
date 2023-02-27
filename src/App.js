@@ -11,27 +11,27 @@ function App() {
   const [positionCarossel, setPositionCarossel] = useState(0);
 
   // Function to move to the next image
-  const handleNextPage = useCallback(() => {
+  const handleNextImage = useCallback(() => {
     positionCarossel <= -300 ? setPositionCarossel((p) => p * 0) : setPositionCarossel((p) => p - 100);
   }, [positionCarossel]);
 
   // Function to move to the before image
-  const handlePreviewPage = () => {
+  const handleBeforeImage = () => {
     positionCarossel >= 0 ? setPositionCarossel((p) => p - 300) : setPositionCarossel((p) => p + 100);
   };
 
-  // Function for to move to the next image in a 2 seconds loop
+  // useEffect to move to the next image in a 2 seconds loop
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNextPage();
+      handleNextImage();
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [handleNextPage]);
+  }, [handleNextImage]);
 
   return (
     <div className="container-father">
-      <Button onClick={handlePreviewPage} text={'<'} />
+      <Button onClick={handleBeforeImage} text={'<'} />
       <div className="container">
         <div style={{ marginLeft: `${positionCarossel}%` }} className="carossel">
           <Img src={img1} />
@@ -40,7 +40,7 @@ function App() {
           <Img src={img4} />
         </div>
       </div>
-      <Button onClick={handleNextPage} text={'>'} />
+      <Button onClick={handleNextImage} text={'>'} />
     </div>
   );
 }
