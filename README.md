@@ -17,7 +17,7 @@
 
 ## Acesso ao projeto
 
-* Em breve...
+* [Clique Aqui](https://frabjous-pavlova-210b7f.netlify.app/)
 
 ## Tecnologias utilizadas
 
